@@ -16,11 +16,14 @@ Base interface implemented by every system manager.
 class IManager
 {
 public:
+
     virtual ~IManager() = default;
 
-    /// Initialize the manager.
+    virtual const char* name() const = 0;
+
     virtual bool begin() = 0;
 
-    /// Called repeatedly from the main application loop.
     virtual void loop() = 0;
+
+    virtual bool healthy() const = 0;
 };

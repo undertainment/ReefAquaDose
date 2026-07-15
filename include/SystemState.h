@@ -13,10 +13,27 @@ Defines the overall firmware operating state.
 
 #pragma once
 
-enum class SystemState
+#include <Arduino.h>
+
+struct SystemState
 {
-    Booting,
-    Ready,
-    Maintenance,
-    Error
+    bool initialized = false;
+
+    bool safeMode = false;
+
+    bool wifiConnected = false;
+
+    bool storageReady = false;
+
+    bool configReady = false;
+
+    bool pumpsReady = false;
+
+    bool schedulerReady = false;
+
+    bool webServerReady = false;
+
+    bool timeSynchronized = false;
+
+    uint32_t uptimeSeconds = 0;
 };
